@@ -1,6 +1,12 @@
 package org.aiokleo.appUser;
 
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class AppUser { // Also called POJO/BEAN
+    @Id
     private int id;
     private String name;
     private String email;
@@ -38,4 +44,16 @@ public class AppUser { // Also called POJO/BEAN
         this.date_of_birth = date_of_birth;
     }
 
+    public AppUser(int id,
+                   String name,
+                   String email,
+                   String date_of_birth) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.date_of_birth = date_of_birth;
+    }
+
+    public AppUser() {
+    }
 }

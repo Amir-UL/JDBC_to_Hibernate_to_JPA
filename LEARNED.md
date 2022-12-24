@@ -4,3 +4,5 @@
 >> **Fact:** is In reality we can't avoid the JDBC [Some Steps might be Shortened]
 >> > Like ```hibernate.cfg.xml``` in resources directory equivalent to the 2nd and 3rd Step the Loading, registering and Creating Connection.
 ### The Main Advantage: We don't have to  Write the SQL Query Ourselves.
+
+>### Difference between ```@Entity(name="")``` and ```@Table(name="")``` is Briefly Discussed in ```AppUser.java```  file.

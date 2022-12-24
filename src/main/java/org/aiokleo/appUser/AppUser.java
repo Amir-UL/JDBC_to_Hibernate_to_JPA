@@ -3,11 +3,25 @@ package org.aiokleo.appUser;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
-@Entity
+@Entity(name = "appUser")
+@Table(name = "app_user")
+
+//Entity is object-oriented and Table is relation-oriented.
+//You can only use the Entity name="appUser" in the HQL (Hibernate Query Language) to query objects,
+//And the Table name="" in the native SQL.
+
+// In Other words:  Writing Queries you have to use the name given in @Entity and the name given in
+// @Table will be used to name the table in the DB.
+
+// If the 2 name is similar that will allow you to access your table with the same name as the entity while writing HQL or JPQL.
+
 public class AppUser { // Also called POJO/BEAN
     @Id
     private int id;
+    @Transient // This annotation will not store the name in the DB.
     private String name;
     private String email;
     private String date_of_birth;

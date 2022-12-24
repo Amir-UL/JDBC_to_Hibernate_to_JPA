@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 public class Main {
     public static void main(String[] args) {
-        AppUser appUser = new AppUser(1, "Amir", "hello@gmail.com", "20-07-2000");
+        AppUser appUser = new AppUser(1, "Nua", "green@gmail.com", "20-07-2004");
 
 
         // Configuration

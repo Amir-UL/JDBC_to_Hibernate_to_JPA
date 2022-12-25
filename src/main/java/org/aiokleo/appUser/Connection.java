@@ -18,7 +18,8 @@ public class Connection {
     // an Object. SessionFactory also an Interface.
     // We go Configuration in our hand
 
-    void configConnection(AppUser appUser) {
+
+    public void configConnection(AppUser appUser) { // This method HAVE TO BE public to be accessed by Other classes from Other packages.
         this.session.save(appUser); // The magic word. Which belongs to session class. So, call session
         this.t.commit();
     }

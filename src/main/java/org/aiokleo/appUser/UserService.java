@@ -7,7 +7,7 @@ public class UserService {
 
 
         // Fetching the Data
-        appUser = (AppUser)c.session.get(AppUser.class, 02);
+        appUser = (AppUser)c.session.get(AppUser.class, 15);
         System.out.println(appUser);
     }
 }

@@ -1,10 +1,7 @@
 package org.aiokleo.appUser;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
+import java.time.LocalDate;
 
 @Entity(name = "appUser")
 @Table(name = "app_user")
@@ -21,10 +18,11 @@ import jakarta.persistence.Transient;
 public class AppUser { // Also called POJO/BEAN
     @Id
     private int id;
-    @Transient // This annotation will not store the name in the DB.
+//    @Transient // This annotation will not store the name in the DB.
     private String name;
+//    @Column(nullable = false)
     private String email;
-    private String date_of_birth;
+    private LocalDate date_of_birth;
 
     public int getId() {
         return id;
@@ -50,24 +48,31 @@ public class AppUser { // Also called POJO/BEAN
         this.email = email;
     }
 
-    public String getDate_of_birth() {
+    public LocalDate getDate_of_birth() {
         return date_of_birth;
     }
 
     public void setDate_of_birth(String date_of_birth) {
-        this.date_of_birth = date_of_birth;
+        this.date_of_birth = LocalDate.parse(date_of_birth);
     }
 
-    public AppUser(int id,
-                   String name,
-                   String email,
-                   String date_of_birth) {
+    public AppUser(int id, String name, String email, String date_of_birth) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.date_of_birth = date_of_birth;
+        this.date_of_birth = LocalDate.parse(date_of_birth);
     }
 
     public AppUser() {
     }
+    @Override
+    public String toString() {
+        return "UserService{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", date_of_birth=" + date_of_birth +
+                '}';
+    }
+
 }

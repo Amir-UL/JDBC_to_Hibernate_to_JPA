@@ -26,8 +26,22 @@ public class Connection {
     // We go Configuration in our hand
 
 
-    public void configConnection(AppUser appUser) { // This method HAVE TO BE public to be accessed by Other classes from Other packages.
+    public void setConnectionAppUser(AppUser appUser) { // This method HAVE TO BE public to be accessed by Other classes from Other packages.
         this.session.save(appUser); // The magic word. Which belongs to session class. So, call session
+    }
+    public void setConfigurationDevice(Device device){
+        this.session.save(device);
+    }
+
+    public void setConfigurationPhones(Phones phones){
+        this.session.save(phones);
+    }
+
+    public void setConfigurationLaptop(Laptop laptop){
+        this.session.save(laptop);
+    }
+    public void setCommit(){
         this.t.commit();
     }
+
 }

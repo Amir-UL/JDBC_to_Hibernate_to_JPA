@@ -4,6 +4,8 @@ import org.aiokleo.appUser.AllNames;
 import org.aiokleo.appUser.AppUser;
 import org.aiokleo.appUser.Connection;
 import org.aiokleo.devices.Device;
+import org.aiokleo.devices.Laptop;
+import org.aiokleo.devices.Phones;
 
 
 public class Main {
@@ -11,14 +13,21 @@ public class Main {
     public static void main(String[] args) {
 
         // Sending data to DB
-        AllNames names = new AllNames("Amirul", "Islam", "Khalifa");
-        AppUser appUser = new AppUser(16, names, "jamal@gmail.com", "2000-01-01");
-        
-//        Config config = new Config();
+        AllNames names = new AllNames("Zohir", "Ryhan", "Forid");
+        Device device = new Device(2, true, true, false);
+        Phones phones = new Phones(2, "Lava Some Version");
+        Laptop laptop = new Laptop(2, null);
+        AppUser appUser = new AppUser(2, names, "ryhangmail.com", "1980-01-01", device, phones, laptop);
+
 
         // Establishing Connection
         Connection c = new Connection();
-        c.configConnection(appUser);
+
+        c.setConnectionAppUser(appUser);
+        c.setConfigurationDevice(device);
+        c.setConfigurationPhones(phones);
+        c.setConfigurationLaptop(laptop);
+        c.setCommit();
 
     }
 }

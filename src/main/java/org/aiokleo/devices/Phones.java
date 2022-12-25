@@ -1,38 +1,28 @@
 package org.aiokleo.devices;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.aiokleo.appUser.AppUser;
+
+@Entity
+@Setter
+@NoArgsConstructor
+@Getter
+@ToString
 public class Phones {
+    @Id
     private int Pid;
     private String phoneName;
-
-    public int getPid() {
-        return Pid;
-    }
-
-    public void setPid(int pid) {
-        Pid = pid;
-    }
-
-    public String getPhoneName() {
-        return phoneName;
-    }
-
-    public void setPhoneName(String phoneName) {
-        this.phoneName = phoneName;
-    }
+    @ManyToOne
+    private AppUser appUser;
 
     public Phones(int pid, String phoneName) {
         Pid = pid;
         this.phoneName = phoneName;
-    }
-
-    public Phones() {
-    }
-
-    @Override
-    public String toString() {
-        return "Phones{" +
-                "Pid=" + Pid +
-                ", phoneName='" + phoneName + '\'' +
-                '}';
     }
 }

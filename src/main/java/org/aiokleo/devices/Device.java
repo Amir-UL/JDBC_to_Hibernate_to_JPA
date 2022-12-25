@@ -1,39 +1,36 @@
 package org.aiokleo.devices;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import org.aiokleo.appUser.AppUser;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
+@Entity
 public class Device {
-    private int Lid;
-    private String deviceName;
+    @Id
+    private int id;
+    private boolean hasElectronicDevice;
+    private boolean hasPhone;
+    private boolean hasLaptop;
+    @ManyToOne
+    private AppUser appUser;
 
-    public int getLid() {
-        return Lid;
-    }
-
-    public void setLid(int lid) {
-        Lid = lid;
-    }
-
-    public String getDeviceName() {
-        return deviceName;
-    }
-
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
-    }
-
-    public Device(int lid,
-                  String deviceName) {
-        Lid = lid;
-        this.deviceName = deviceName;
-    }
-
-    public Device() {
-    }
-
-    @Override
-    public String toString() {
-        return "Laptops{" +
-                "Lid=" + Lid +
-                ", deviceName='" + deviceName + '\'' +
-                '}';
+    public Device(int id,
+                  boolean hasElectronicDevice,
+                  boolean hasPhone,
+                  boolean hasLaptop) {
+        this.id = id;
+        this.hasElectronicDevice = hasElectronicDevice;
+        this.hasPhone = hasPhone;
+        this.hasLaptop = hasLaptop;
     }
 }

@@ -1,11 +1,21 @@
 package org.aiokleo.appUser;
 
 import jakarta.persistence.*;
+import lombok.*;
+import org.aiokleo.devices.Device;
+import org.aiokleo.devices.Laptop;
+import org.aiokleo.devices.Phones;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-@Entity(name = "appUser")
-@Table(name = "app_user")
-
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 //Entity is object-oriented and Table is relation-oriented.
 //You can only use the Entity name="appUser" in the HQL (Hibernate Query Language) to query objects,
 //And the Table name="" in the native SQL.
@@ -24,55 +34,28 @@ public class AppUser { // Also called POJO/BEAN
     private String email;
     private LocalDate date_of_birth;
 
-    public int getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
+    private List<Device> device = new ArrayList<>();
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
+    private List<Phones> phones = new ArrayList<>();
+    @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
+    private List<Laptop> laptop = new ArrayList<>();
 
-    public AllNames getName() {
-        return name;
-    }
 
-    public void setName(AllNames name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public LocalDate getDate_of_birth() {
-        return date_of_birth;
-    }
-
-    public void setDate_of_birth(String date_of_birth) {
-        this.date_of_birth = LocalDate.parse(date_of_birth);
-    }
-
-    public AppUser(int id, AllNames name, String email, String date_of_birth) {
+    public AppUser(int id,
+                   AllNames name,
+                   String email,
+                   String date_of_birth,
+                   Device device,
+                   Phones phones,
+                   Laptop laptop) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.date_of_birth = LocalDate.parse(date_of_birth);
+        this.device = Collections.singletonList(device);
+        this.phones = Collections.singletonList(phones);
+        this.laptop = Collections.singletonList(laptop);
     }
-
-    public AppUser() {
-    }
-    @Override
-    public String toString() {
-        return "UserService{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", date_of_birth=" + date_of_birth +
-                '}';
-    }
-
 }

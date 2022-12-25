@@ -34,3 +34,6 @@ static class Config {
 > #### Embedded Data into Existing Database. Like ```AllNames.java``` dose.
 > - It also **Creates New Columns** in the Existing Database.
 
+- ###  ```FetchType.EAGER``` will fetch all at Once.
+
+

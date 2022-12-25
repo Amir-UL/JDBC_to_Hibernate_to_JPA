@@ -1,13 +1,14 @@
 package org.aiokleo.appUser;
 
+import org.aiokleo.devices.Device;
+
 public class UserService {
     public static void main(String[] args) {
-        AppUser appUser = null;
         Connection c = new Connection();
 
 
         // Fetching the Data
-        appUser = (AppUser)c.session.get(AppUser.class, 16);
-        System.out.println(appUser);
+        AppUser appUser = c.session.get(AppUser.class, 2);
+        System.out.println(appUser.getDevice());
     }
 }

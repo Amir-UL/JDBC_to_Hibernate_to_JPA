@@ -14,6 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@EqualsAndHashCode
 @NoArgsConstructor
 @ToString
 //Entity is object-oriented and Table is relation-oriented.
@@ -34,12 +35,12 @@ public class AppUser { // Also called POJO/BEAN
     private String email;
     private LocalDate date_of_birth;
 
-    @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
+    @OneToMany()
     private List<Device> device = new ArrayList<>();
 
-    @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
+    @OneToMany()
     private List<Phones> phones = new ArrayList<>();
-    @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
+    @OneToMany()
     private List<Laptop> laptop = new ArrayList<>();
 
 

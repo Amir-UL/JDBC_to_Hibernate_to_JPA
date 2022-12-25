@@ -14,10 +14,10 @@ public class Main {
 
         // Sending data to DB
         AllNames names = new AllNames("Zohir", "Ryhan", "Forid");
-        Device device = new Device(2, true, true, false);
-        Phones phones = new Phones(2, "Lava Some Version");
-        Laptop laptop = new Laptop(2, null);
-        AppUser appUser = new AppUser(2, names, "ryhangmail.com", "1980-01-01", device, phones, laptop);
+        Device device = new Device(3, true, true, false);
+        Phones phones = new Phones(3, "Lava Some Version");
+        Laptop laptop = new Laptop(3, null);
+        AppUser appUser = new AppUser(3, names, "ryhangmail.com", "1980-01-01", device, phones, laptop);
 
 
         // Establishing Connection

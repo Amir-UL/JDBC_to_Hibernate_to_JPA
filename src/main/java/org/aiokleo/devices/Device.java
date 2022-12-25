@@ -4,10 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.aiokleo.appUser.AppUser;
 
 @Getter
@@ -21,8 +18,6 @@ public class Device {
     private boolean hasElectronicDevice;
     private boolean hasPhone;
     private boolean hasLaptop;
-    @ManyToOne
-    private AppUser appUser;
 
     public Device(int id,
                   boolean hasElectronicDevice,

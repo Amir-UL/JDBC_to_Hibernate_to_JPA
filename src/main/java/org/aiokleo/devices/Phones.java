@@ -3,10 +3,7 @@ package org.aiokleo.devices;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.aiokleo.appUser.AppUser;
 
 @Entity
@@ -16,13 +13,11 @@ import org.aiokleo.appUser.AppUser;
 @ToString
 public class Phones {
     @Id
-    private int Pid;
+    private int id;
     private String phoneName;
-    @ManyToOne
-    private AppUser appUser;
 
-    public Phones(int pid, String phoneName) {
-        Pid = pid;
+    public Phones(int id, String phoneName) {
+        this.id = id;
         this.phoneName = phoneName;
     }
 }

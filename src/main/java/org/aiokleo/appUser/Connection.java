@@ -1,5 +1,8 @@
 package org.aiokleo.appUser;
 
+import org.aiokleo.devices.Device;
+import org.aiokleo.devices.Laptop;
+import org.aiokleo.devices.Phones;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -8,7 +11,11 @@ import org.hibernate.cfg.Configuration;
 public class Connection {
     // Configuration
     // The application must supply JDBC connections.
-    Configuration configuration = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(AppUser.class); // locating the connection configuration file
+    Configuration configuration = new Configuration().configure("hibernate.cfg.xml")
+            .addAnnotatedClass(AppUser.class)
+            .addAnnotatedClass(Device.class)
+            .addAnnotatedClass(Phones.class)
+            .addAnnotatedClass(Laptop.class); // locating the connection configuration file
     SessionFactory sf = configuration.buildSessionFactory();
     Session session = sf.openSession();
 

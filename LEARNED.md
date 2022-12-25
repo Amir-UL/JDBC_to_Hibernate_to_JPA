@@ -30,4 +30,7 @@ static class Config {
         }
     }
 ```
+>### ```@Embeddable```
+> #### Embedded Data into Existing Database. Like ```AllNames.java``` dose.
+> - It also **Creates New Columns** in the Existing Database.
 

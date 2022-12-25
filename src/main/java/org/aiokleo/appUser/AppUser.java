@@ -19,7 +19,7 @@ public class AppUser { // Also called POJO/BEAN
     @Id
     private int id;
 //    @Transient // This annotation will not store the name in the DB.
-    private String name;
+    private AllNames name;
 //    @Column(nullable = false)
     private String email;
     private LocalDate date_of_birth;
@@ -32,11 +32,11 @@ public class AppUser { // Also called POJO/BEAN
         this.id = id;
     }
 
-    public String getName() {
+    public AllNames getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(AllNames name) {
         this.name = name;
     }
 
@@ -56,7 +56,7 @@ public class AppUser { // Also called POJO/BEAN
         this.date_of_birth = LocalDate.parse(date_of_birth);
     }
 
-    public AppUser(int id, String name, String email, String date_of_birth) {
+    public AppUser(int id, AllNames name, String email, String date_of_birth) {
         this.id = id;
         this.name = name;
         this.email = email;

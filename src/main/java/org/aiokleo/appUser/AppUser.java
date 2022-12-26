@@ -29,7 +29,6 @@ public class AppUser { // Also called POJO/BEAN
     @Id
     private int id;
 //    @Transient // This annotation will not store the name in the DB.
-    @Embedded
     private AllNames name;
 //    @Column(nullable = false)
     private String email;

@@ -11,18 +11,18 @@ import org.hibernate.cfg.Configuration;
 public class Connection {
     // Configuration
     // The application must supply JDBC connections.
-    Configuration configuration = new Configuration().configure("hibernate.cfg.xml")
+    Configuration configuration = new Configuration().configure("hibernate.cfg.xml")// locating the connection configuration file
             .addAnnotatedClass(AppUser.class)
             .addAnnotatedClass(Device.class)
             .addAnnotatedClass(Phones.class)
-            .addAnnotatedClass(Laptop.class); // locating the connection configuration file
+            .addAnnotatedClass(Laptop.class);
     SessionFactory sf = configuration.buildSessionFactory();
-    Session session = sf.openSession();
+    public Session session = sf.openSession();
 
     //
-    Transaction t = session.beginTransaction();
-    // save is depended on Session interface. Which also can't be used to instantiate
-    // an Object. SessionFactory also an Interface.
+    public Transaction t = session.beginTransaction();
+    // save is depended on Session interface. Which can't be used to instantiate an Object.
+    // SessionFactory also an Interface.
     // We go Configuration in our hand
 
 
@@ -40,8 +40,4 @@ public class Connection {
     public void setConfigurationLaptop(Laptop laptop){
         this.session.save(laptop);
     }
-    public void setCommit(){
-        this.t.commit();
-    }
-
 }

@@ -16,8 +16,8 @@ public class UserService {
         // Hibernate will Execute SQL Once for these two Object as The Object is Already Stored.
 
 
-//        AppUser User = c.session.get(AppUser.class, 3 );
-//        System.out.println(User.getDevice());
+        AppUser User = c.session.get(AppUser.class, 7 );
+        System.out.println(User.getDate_of_birth());
 
     }
 }

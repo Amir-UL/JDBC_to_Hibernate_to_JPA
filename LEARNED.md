@@ -1,5 +1,5 @@
->### The main Idea behind **Hibernate** is that, say someone said "You don't have to do JDBC 7 Steps Every time. Just pass the Object into ```save()``` Method and Everything will be taken care **automatically**"
-> >### Hibernate Introduce an Automatic Process of Communicating with Database.
+>#### The main Idea behind **Hibernate** is that, say someone said "You don't have to do JDBC 7 Steps Every time. Just pass the Object into ```save()``` Method and Everything will be taken care **Automatically**"
+> >### Hibernate Introduce an Automatic Process of Communicating with Database called **ORM**.
 
 >> **Fact:** is In reality we can't avoid the JDBC [Some Steps might be Shortened]
 >> > Like ```hibernate.cfg.xml``` in resources directory equivalent to the 2nd and 3rd Step the Loading, registering and Creating Connection.
@@ -46,5 +46,15 @@ static class Config {
 >>
 >> >- Lazy
 
- Caching 
+ >>>Caching 
+ > 
+### Object Array vs List Array & List of Object Array
+>> #### ```Object Array``` for 1 Row of Data. 
+> - Use ```q.uniqueResult()``` method to fetch data.
+>
+>> #### ```List Array``` for All Rows.
+> - Use ```q.list()``` method for fetching.
 
+### Hibernate Object States
+- You can ```UPDATE``` the DB in Persistent State.
+- There is ```session.detach();``` 

@@ -12,20 +12,11 @@ import org.aiokleo.appUser.AppUser;
 @NoArgsConstructor
 @ToString
 @Entity
+@AllArgsConstructor
 public class Device {
     @Id
     private int id;
     private boolean hasElectronicDevice;
     private boolean hasPhone;
     private boolean hasLaptop;
-
-    public Device(int id,
-                  boolean hasElectronicDevice,
-                  boolean hasPhone,
-                  boolean hasLaptop) {
-        this.id = id;
-        this.hasElectronicDevice = hasElectronicDevice;
-        this.hasPhone = hasPhone;
-        this.hasLaptop = hasLaptop;
-    }
 }

@@ -13,11 +13,11 @@ public class Main {
     public static void main(String[] args) {
 
         // Sending data to DB
-        AllNames names = new AllNames("Zohir", "Ryhan", "Forid");
-        Device device = new Device(3, true, true, false);
-        Phones phones = new Phones(3, "Lava Some Version");
-        Laptop laptop = new Laptop(3, null);
-        AppUser appUser = new AppUser(3, names, "ryhangmail.com", "1980-01-01", device, phones, laptop);
+        AllNames names = new AllNames("Amir", "Hamza", "Arif");
+        Device device = new Device(4, true, true, true);
+        Phones phones = new Phones(4, "Some Thing latest");
+        Laptop laptop = new Laptop(4, "Any");
+        AppUser appUser = new AppUser(4, names, "arif@gmail.com", "2000-01-01", device, phones, laptop);
 
 
         // Establishing Connection

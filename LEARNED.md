@@ -36,4 +36,15 @@ static class Config {
 
 - ###  ```FetchType.EAGER``` will fetch all at Once.
 
+>>  ### There are 2 Types of ```OneToMany``` joints available.
+>> >- **Unidirectional** (Cons: Creates Extra Table)
+>> 
+>> >- **Bidirectional**
+
+>> ### And There are 2 Types of Fetching Technic.
+>> >- Eager (Need more Resource)
+>>
+>> >- Lazy
+
+ Caching 
 

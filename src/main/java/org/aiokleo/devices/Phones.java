@@ -11,13 +11,10 @@ import org.aiokleo.appUser.AppUser;
 @NoArgsConstructor
 @Getter
 @ToString
+@AllArgsConstructor
 public class Phones {
     @Id
     private int id;
     private String phoneName;
 
-    public Phones(int id, String phoneName) {
-        this.id = id;
-        this.phoneName = phoneName;
-    }
 }

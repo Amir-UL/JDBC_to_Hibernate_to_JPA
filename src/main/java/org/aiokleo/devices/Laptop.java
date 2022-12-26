@@ -11,13 +11,10 @@ import org.aiokleo.appUser.AppUser;
 @Setter
 @NoArgsConstructor
 @Entity
+@AllArgsConstructor
 public class Laptop {
     @Id
     private int id;
     private String laptopName;
 
-    public Laptop(int id, String laptopName) {
-        this.id = id;
-        this.laptopName = laptopName;
-    }
 }

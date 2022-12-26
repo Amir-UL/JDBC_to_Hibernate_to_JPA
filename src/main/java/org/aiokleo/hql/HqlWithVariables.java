@@ -14,7 +14,7 @@ public class HqlWithVariables {
 
 
 //         For Storing a Single Row of Object
-        Query q = c.session.createQuery("SELECT name, email FROM AppUser WHERE date_of_birth = :birth_day");
+        Query q = (Query) c.em.createQuery("SELECT name, email FROM AppUser WHERE date_of_birth = :birth_day");
         // We have to the where the  birth_day locate.
         q.setParameter("birth_day", birth_day);
 

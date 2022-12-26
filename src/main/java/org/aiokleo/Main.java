@@ -23,15 +23,6 @@ public class Main {
         // Establishing Connection
         Connection c = new Connection();
 
-        // The Object is In Persistent State
-        // I can Still UPDATE the DATA.
-//        appUser.setDate_of_birth(LocalDate.parse("2000-09-11"));
-
-        // If it placed the STATEMENT after t.commit();
-        // The UPDATE won't Work
-        // Because the Object already in Detach State
-        // I could manually Specify this by c.session.detach();
-
         c.em.getTransaction().begin();
         c.em.persist(appUser);
         c.em.persist(device);

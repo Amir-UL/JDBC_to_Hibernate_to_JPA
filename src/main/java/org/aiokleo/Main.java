@@ -32,7 +32,6 @@ public class Main {
         // The UPDATE won't Work
         // Because the Object already in Detach State
         // I could manually Specify this by c.session.detach();
-
         c.setConnectionAppUser(appUser);
         c.setConfigurationDevice(device);
         c.setConfigurationPhones(phones);

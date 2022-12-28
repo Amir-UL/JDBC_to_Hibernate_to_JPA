@@ -1,8 +1,6 @@
 package org.aiokleo.devices;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.*;
 import org.aiokleo.appUser.AppUser;
 
@@ -12,9 +10,23 @@ import org.aiokleo.appUser.AppUser;
 @Getter
 @ToString
 @AllArgsConstructor
+@SequenceGenerator(
+        name = "phone_sq",
+        sequenceName = "phone_sq",
+        allocationSize = 1
+)
 public class Phones {
     @Id
-    private int id;
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "phone_sq"
+
+    )
+    @Column(name = "id", nullable = false)
+    private Long id;
     private String phoneName;
 
+    public Phones(String phoneName) {
+        this.phoneName = phoneName;
+    }
 }

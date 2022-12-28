@@ -7,7 +7,6 @@ import org.aiokleo.devices.Device;
 import org.aiokleo.devices.Laptop;
 import org.aiokleo.devices.Phones;
 
-import java.time.LocalDate;
 
 public class Main {
 
@@ -15,10 +14,10 @@ public class Main {
 
         // Sending data to DB
         AllNames names = new AllNames("Afrida", "Zahan", "Dhoritry");
-        Device device = new Device(9, true, true, true);
-        Phones phones = new Phones(9, "Some Thing latest");
-        Laptop laptop = new Laptop(9, "Any");
-        AppUser appUser = new AppUser(9, names, "dhoritry@gmail.com", "2005-04-21", device, phones, laptop);
+        Device device = new Device( true, true, true);
+        Phones phones = new Phones( "Some Thing latest");
+        Laptop laptop = new Laptop( "Any");
+        AppUser appUser = new AppUser(names, "dhoritry@gmail.com", "2005-04-21", device, phones, laptop);
 
         // Establishing Connection
         Connection c = new Connection();

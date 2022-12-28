@@ -15,6 +15,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
 //Entity is object-oriented and Table is relation-oriented.
 //You can only use the Entity name="appUser" in the HQL (Hibernate Query Language) to query objects,
@@ -27,11 +28,20 @@ import java.util.List;
 
 public class AppUser { // Also called POJO/BEAN
     @Id
-    private int id;
+    @SequenceGenerator(
+            name = "app_usr_sq",
+            sequenceName = "app_usr_sq",
+            allocationSize = 1)
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "app_usr_sq"
+    )
+    @Column(name = "id", nullable = false)
+    private Long id;
 //    @Transient // This annotation will not store the name in the DB.
     @Embedded
     private AllNames name;
-//    @Column(nullable = false)
+    @Column(nullable = false)
     private String email;
     private LocalDate date_of_birth;
 
@@ -43,15 +53,7 @@ public class AppUser { // Also called POJO/BEAN
     @OneToMany()
     private List<Laptop> laptop = new ArrayList<>();
 
-
-    public AppUser(int id,
-                   AllNames name,
-                   String email,
-                   String date_of_birth,
-                   Device device,
-                   Phones phones,
-                   Laptop laptop) {
-        this.id = id;
+    public AppUser(AllNames name, String email, String date_of_birth, Device device, Phones phones, Laptop laptop) {
         this.name = name;
         this.email = email;
         this.date_of_birth = LocalDate.parse(date_of_birth);

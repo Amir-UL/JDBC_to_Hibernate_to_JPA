@@ -1,25 +1,26 @@
 package org.aiokleo.devices;
 
-import jakarta.persistence.*;
 import lombok.*;
+
+//import javax.persistence.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
-@Entity
+//@Entity
 @AllArgsConstructor
-@SequenceGenerator(
-        name = "device_sq",
-        sequenceName = "device_sq",
-        allocationSize = 1
-)
+//@SequenceGenerator(
+//        name = "device_sq",
+//        sequenceName = "device_sq",
+//        allocationSize = 1
+//)
 public class Device {
-    @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "device_sq"
-    )
+//    @Id
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "device_sq"
+//    )
     private Long id;
     private boolean hasElectronicDevice;
     private boolean hasPhone;

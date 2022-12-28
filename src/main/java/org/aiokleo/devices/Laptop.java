@@ -1,26 +1,26 @@
 package org.aiokleo.devices;
 
-import jakarta.persistence.*;
 import lombok.*;
-import org.aiokleo.appUser.AppUser;
+
+//import javax.persistence.*;
 
 @ToString
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
+//@Entity
 @AllArgsConstructor
-@SequenceGenerator(
-        name = "laptop_sq",
-        sequenceName = "laptop_sq",
-        allocationSize = 1
-)
+//@SequenceGenerator(
+//        name = "laptop_sq",
+//        sequenceName = "laptop_sq",
+//        allocationSize = 1
+//)
 public class Laptop {
-    @Id
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "laptop_sq"
-    )
+//    @Id
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "laptop_sq"
+//    )
     private Long id;
     private String laptopName;
 

@@ -1,16 +1,21 @@
 package org.aiokleo.appUser;
 
-import jakarta.persistence.Embeddable;
 import lombok.*;
+import org.springframework.stereotype.Component;
 
+//import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Embeddable
+@Component
+//@Embeddable
 public class AllNames {
     private String firstName;
     private String MiddleName;
     private String LastName;
+    public void show(){
+        System.out.println("Showing!");
+    }
 }

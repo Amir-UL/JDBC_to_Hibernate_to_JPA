@@ -1,22 +1,33 @@
 package org.aiokleo.appUser;
 
-import jakarta.persistence.*;
 import lombok.*;
 import org.aiokleo.devices.Device;
 import org.aiokleo.devices.Laptop;
 import org.aiokleo.devices.Phones;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
+//import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-@Entity
+//@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Component // By Adding this Annotation
+// I am telling Spring, this is a Class I want Object of.
+//@Scope(value = "prototype") // By Default the Constructor AccountDetails() is Singleton
+// If I want to be all method and Constructors to Prototype
+// I have to Specify with this Annotation.
+// Now I can call theAccountDetails() as many as I want
+
+@ComponentScan(basePackages = {"org.aiokLoe"})
 //Entity is object-oriented and Table is relation-oriented.
 //You can only use the Entity name="appUser" in the HQL (Hibernate Query Language) to query objects,
 //And the Table name="" in the native SQL.
@@ -27,30 +38,32 @@ import java.util.List;
 // If the 2 name is similar that will allow you to access your table with the same name as the entity while writing HQL or JPQL.
 
 public class AppUser { // Also called POJO/BEAN
-    @Id
-    @SequenceGenerator(
-            name = "app_usr_sq",
-            sequenceName = "app_usr_sq",
-            allocationSize = 1)
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "app_usr_sq"
-    )
-    @Column(name = "id", nullable = false)
+//    @Id
+//    @SequenceGenerator(
+//            name = "app_usr_sq",
+//            sequenceName = "app_usr_sq",
+//            allocationSize = 1)
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "app_usr_sq"
+//    )
+//    @Column(name = "id", nullable = false)
     private Long id;
 //    @Transient // This annotation will not store the name in the DB.
-    @Embedded
+//    @Embedded
+
+    @Autowired // AKA the Dependency Injection.
     private AllNames name;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String email;
     private LocalDate date_of_birth;
 
-    @OneToMany()
+//    @OneToMany()
     private List<Device> device = new ArrayList<>();
 
-    @OneToMany()
+//    @OneToMany()
     private List<Phones> phones = new ArrayList<>();
-    @OneToMany()
+//    @OneToMany()
     private List<Laptop> laptop = new ArrayList<>();
 
     public AppUser(AllNames name, String email, String date_of_birth, Device device, Phones phones, Laptop laptop) {
@@ -60,5 +73,9 @@ public class AppUser { // Also called POJO/BEAN
         this.device = Collections.singletonList(device);
         this.phones = Collections.singletonList(phones);
         this.laptop = Collections.singletonList(laptop);
+    }
+    public void show(){
+        System.out.println("Something From AppUsers");
+        name.show();
     }
 }

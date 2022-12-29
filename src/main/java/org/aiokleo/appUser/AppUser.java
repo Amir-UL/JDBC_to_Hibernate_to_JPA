@@ -27,7 +27,7 @@ import java.util.List;
 // I have to Specify with this Annotation.
 // Now I can call theAccountDetails() as many as I want
 
-@ComponentScan(basePackages = {"org.aiokLoe"})
+@ComponentScan(basePackages = {"org.aiokloe"})
 //Entity is object-oriented and Table is relation-oriented.
 //You can only use the Entity name="appUser" in the HQL (Hibernate Query Language) to query objects,
 //And the Table name="" in the native SQL.

@@ -12,11 +12,10 @@ import javax.servlet.http.HttpSession;
 @Controller // Giving the Access/Sending Request of/to home.jsp FILE
 public class UserController {
     @RequestMapping(path = "home") // Which Request I want to Deal With.
-    public String home(HttpServletRequest request){ // Getting the User Request.
+    public String home(String name, HttpSession session){ // Getting the User Request.
 
-        HttpSession session = request.getSession();
         // Storing the request them in a Variable
-        String name = request.getParameter("name"); // Storing in {name} parameter And value will be found in key named {name}
+//        String name = request.getParameter("name"); // Storing in {name} parameter And value will be found in key named {name}
 
         // Fetching the Data
         // If I don't SEND anything the name will store "null"

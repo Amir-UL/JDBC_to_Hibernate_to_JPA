@@ -10,19 +10,9 @@
 </head>
 <%@ page import="java.util.Date" %>
 <body>
-<form action="submit" method="post">
-<%--    ${allNames.firstName}--%>
-    <label for="fname">First Name</label>
-    <input type="text" name="firstName" id="fname" placeholder="Your Name ...">
-
-    <label for="mname">Middle Name</label>
-    <input type="text", name="middleName", id="mname", placeholder="Your Middle Name ...">
-
-    <label for="lname">Last Name</label>
-    <input type="text", name="lastName", id="lname", placeholder="Your Last Name ...">
-    <input type="submit" value="Submit">
-
-</form>
+${f}
+${m}
+${l}
 
 <strong>Current Time is</strong>: <%=new Date() %>
 

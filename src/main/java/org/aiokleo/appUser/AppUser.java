@@ -52,8 +52,8 @@ public class AppUser { // Also called POJO/BEAN
 //    @Transient // This annotation will not store the name in the DB.
 //    @Embedded
 
-    @Autowired // AKA the Dependency Injection.
-    private AllNames name;
+//    @Autowired // AKA the Dependency Injection.
+//    private AllNames name;
 //    @Column(nullable = false)
     private String email;
     private LocalDate date_of_birth;
@@ -66,16 +66,18 @@ public class AppUser { // Also called POJO/BEAN
 //    @OneToMany()
     private List<Laptop> laptop = new ArrayList<>();
 
-    public AppUser(AllNames name, String email, String date_of_birth, Device device, Phones phones, Laptop laptop) {
-        this.name = name;
+    public AppUser(
+//            AllNames name,
+                   String email,
+                   String date_of_birth,
+                   Device device,
+                   Phones phones,
+                   Laptop laptop) {
+//        this.name = name;
         this.email = email;
         this.date_of_birth = LocalDate.parse(date_of_birth);
         this.device = Collections.singletonList(device);
         this.phones = Collections.singletonList(phones);
         this.laptop = Collections.singletonList(laptop);
-    }
-    public void show(){
-        System.out.println("Something From AppUsers");
-        name.show();
     }
 }

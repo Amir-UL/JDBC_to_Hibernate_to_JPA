@@ -58,3 +58,5 @@ static class Config {
 ### Hibernate Object States
 - You can ```UPDATE``` the DB in Persistent State.
 - There is ```session.detach();``` 
+
+### Now there is ```Model``` and ```ModelAndView```

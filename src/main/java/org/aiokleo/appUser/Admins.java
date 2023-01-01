@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Entity
 public class Admins {
     @Id
-    private String id;
+    private Long id;
     private String name;
     private String roll;
 

@@ -13,12 +13,20 @@
 // Fetching data from db
 <form action="adminsData" method="post">
 
+    // Search By Id
     <label for="id">Id</label>
     <input type="text" name="id", id="id", placeholder="Id...">
     <input type="submit" value="Submit">
 
 </form>
+<br>
+<form action="fetchByName", method="post">
+    // Search by Name
+    <label for="name">Name</label>
+    <input type="text" name="name", id="name", placeholder="Name">
+    <input type="submit" value="Submit">
 
+</form>
 <strong>Current Time is</strong>: <%=new Date() %>
 
 </body>

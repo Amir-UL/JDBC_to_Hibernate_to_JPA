@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller // Giving the Access/Sending Request of/to home.jsp FILE
 public class UserController {
     @Autowired
@@ -59,14 +61,14 @@ public class UserController {
     }
 
 
-    // Fetching Data from DB
+    // Fetch by ID Data from DB
     @RequestMapping(value = "fetchData")
     public String fetchData(){
         return "fetchData";
     }
 
     @RequestMapping(value = "adminsData")
-    public ModelAndView getAdmins(@RequestParam String id){
+    public ModelAndView getAdmins(@RequestParam Long id){
         ModelAndView mv = new ModelAndView();
         Admins admins = userRepository.findById(id).orElse(new Admins());
         mv.addObject(admins);
@@ -74,13 +76,25 @@ public class UserController {
         return mv;
     }
 
+    // Find by Names
+    @RequestMapping(value = "fetchByName")
+    public ModelAndView getAdmins(@RequestParam String name){
+        ModelAndView mv = new ModelAndView();
+        List<Admins> adminsNames = userRepository.findByName(name);
+        System.out.println(adminsNames);
+        mv.addObject(adminsNames);
+        mv.setViewName("adminsData");
+        return mv;
+    }
+
+
     // Deleting Data From DB
     @RequestMapping(value = "deleteData")
     public String deleteData(){
         return "delete_Data";
     }
     @RequestMapping(value = "deleteById")
-    public ModelAndView deleteById(@RequestParam String id){
+    public ModelAndView deleteById(@RequestParam Long id){
         ModelAndView mv = new ModelAndView();
         Admins deletedAdmin = userRepository.findById(id).orElse(new Admins());
         mv.addObject(deletedAdmin);

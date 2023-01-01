@@ -10,15 +10,10 @@
 </head>
 <%@ page import="java.util.Date" %>
 <body>
-<!--From Home page-->
-${firstName}
-${middleName}
-${lastName}
-
-<!--From Objects-->
 ${allNames.firstName}
 ${allNames.middleName}
 ${allNames.lastName}
+
 <strong>Current Time is</strong>: <%=new Date() %>
 
 </body>

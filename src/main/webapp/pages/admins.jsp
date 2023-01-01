@@ -10,15 +10,21 @@
 </head>
 <%@ page import="java.util.Date" %>
 <body>
-<!--From Home page-->
-${firstName}
-${middleName}
-${lastName}
+<form action="addAdmins" method="post">
 
-<!--From Objects-->
-${allNames.firstName}
-${allNames.middleName}
-${allNames.lastName}
+    <label for="id">Id</label>
+    <input type="text" name="id", id="id", placeholder="Id...">
+
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Your Name ...">
+
+    <label for="roll">Your Roll</label>
+    <input type="text", name="roll", id="roll", placeholder="Your Rolls ...">
+
+    <input type="submit" value="Submit">
+
+</form>
+
 <strong>Current Time is</strong>: <%=new Date() %>
 
 </body>

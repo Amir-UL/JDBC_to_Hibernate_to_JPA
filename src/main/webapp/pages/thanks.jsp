@@ -10,15 +10,8 @@
 </head>
 <%@ page import="java.util.Date" %>
 <body>
-<!--From Home page-->
-${firstName}
-${middleName}
-${lastName}
-
-<!--From Objects-->
-${allNames.firstName}
-${allNames.middleName}
-${allNames.lastName}
+<h1>Thank Your</h1>
+<h3> We will Connect You Soon</h3>
 <strong>Current Time is</strong>: <%=new Date() %>
 
 </body>

@@ -1,5 +1,6 @@
 package org.aiokleo.appUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.lang.*;
 import java.util.List;
@@ -13,5 +14,8 @@ public interface UserRepository extends JpaRepository<Admins, Long> {
                                                                             // DB have to have a Column named Email
     List<Admins> findByName(String name);
     List<Admins> findByIdGreaterThan(Long id);
-//    custom 
+
+//    custom Methods with Query SQL->HQL->JQL
+    @Query("FROM admins WHERE roll =?1 ORDER BY name") // The value wil come from END user to {?1}
+    List<Admins> findByRoll(String roll);
 }

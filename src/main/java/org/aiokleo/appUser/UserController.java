@@ -78,11 +78,22 @@ public class UserController {
 
     // Find by Names
     @RequestMapping(value = "fetchByName")
-    public ModelAndView getAdmins(@RequestParam String name){
+    public ModelAndView getAdminsByName(@RequestParam String name){
         ModelAndView mv = new ModelAndView();
-        List<Admins> adminsNames = userRepository.findByName(name);
-        System.out.println(adminsNames);
-        mv.addObject(adminsNames);
+        List<Admins> adminsByNames = userRepository.findByName(name);
+        System.out.println(adminsByNames);
+        mv.addObject(adminsByNames);
+        mv.setViewName("adminsData");
+        return mv;
+    }
+
+    // Fetch by Roll
+    @RequestMapping(value = "fetchByRoll")
+    public ModelAndView getAdminsRoll(@RequestParam String roll){
+        ModelAndView mv = new ModelAndView();
+        List<Admins> adminsByRoll = userRepository.findByRoll(roll);
+        System.out.println(adminsByRoll);
+        mv.addObject(adminsByRoll);
         mv.setViewName("adminsData");
         return mv;
     }

@@ -8,7 +8,8 @@
 <%@ page import="java.util.Date" %>
 <body>
 ${admins} <br>
-${adminsNames}<br>
+${adminsByNames[0]}<br>
+${adminsByRoll[0]}<br>
 <strong>Current Time is</strong>: <%=new Date() %>
 
 </body>

@@ -27,6 +27,16 @@
     <input type="submit" value="Submit">
 
 </form>
+<br>
+
+<form action="fetchByRoll", method="post">
+    // Search by Roll
+    <label for="roll">Roll in The Company</label>
+    <input type="text" name="roll", id="roll", placeholder="Name">
+    <input type="submit" value="Submit">
+
+</form>
+<br>
 <strong>Current Time is</strong>: <%=new Date() %>
 
 </body>

@@ -4,13 +4,15 @@ import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
+@Entity(name = "admins")
+@Table(name = "admins")
 public class Admins {
     @Id
     private Long id;

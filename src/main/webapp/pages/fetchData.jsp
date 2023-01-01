@@ -10,12 +10,16 @@
 </head>
 <%@ page import="java.util.Date" %>
 <body>
-<h1>Thank Your</h1>
-<h3> We will Connect You Soon</h3>
+// Fetching data from db
+<form action="adminsData" method="post">
+
+    <label for="id">Id</label>
+    <input type="text" name="id", id="id", placeholder="Id...">
+    <input type="submit" value="Submit">
+
+</form>
+
 <strong>Current Time is</strong>: <%=new Date() %>
-<br>
-<a href="http://localhost:8082/admins"> Add More Data</a><br>
-<a href="http://localhost:8082/fetchData">Fetch Data</a>
-<a href="http://localhost:8082/deleteData"> Delete Data</a>
+
 </body>
 </html>

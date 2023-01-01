@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller // Giving the Access/Sending Request of/to home.jsp FILE
@@ -55,6 +56,37 @@ public class UserController {
     public String addToDB(Admins admins){
        userRepository.save(admins);
        return "thanks";
+    }
+
+
+    // Fetching Data from DB
+    @RequestMapping(value = "fetchData")
+    public String fetchData(){
+        return "fetchData";
+    }
+
+    @RequestMapping(value = "adminsData")
+    public ModelAndView getAdmins(@RequestParam String id){
+        ModelAndView mv = new ModelAndView();
+        Admins admins = userRepository.findById(id).orElse(new Admins());
+        mv.addObject(admins);
+        mv.setViewName("adminsData");
+        return mv;
+    }
+
+    // Deleting Data From DB
+    @RequestMapping(value = "deleteData")
+    public String deleteData(){
+        return "delete_Data";
+    }
+    @RequestMapping(value = "deleteById")
+    public ModelAndView deleteById(@RequestParam String id){
+        ModelAndView mv = new ModelAndView();
+        Admins deletedAdmin = userRepository.findById(id).orElse(new Admins());
+        mv.addObject(deletedAdmin);
+        mv.setViewName("userDeleted");
+        userRepository.deleteById(id);
+        return mv;
     }
 
 }

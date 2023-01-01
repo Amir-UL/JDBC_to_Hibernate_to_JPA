@@ -6,16 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-<title>First JSP</title>
+<title>Deleted</title>
 </head>
 <%@ page import="java.util.Date" %>
 <body>
-<h1>Thank Your</h1>
-<h3> We will Connect You Soon</h3>
+${deletedAdmin}
 <strong>Current Time is</strong>: <%=new Date() %>
-<br>
-<a href="http://localhost:8082/admins"> Add More Data</a><br>
-<a href="http://localhost:8082/fetchData">Fetch Data</a>
-<a href="http://localhost:8082/deleteData"> Delete Data</a>
+
 </body>
 </html>

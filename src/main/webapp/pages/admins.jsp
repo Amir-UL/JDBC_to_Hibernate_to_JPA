@@ -25,6 +25,7 @@
 
 </form>
 
+
 <strong>Current Time is</strong>: <%=new Date() %>
 
 </body>

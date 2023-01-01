@@ -53,11 +53,19 @@
             <optional>true</optional>
         </dependency>
 
+<!--        For JSP-->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-jasper</artifactId>
             <version>9.0.69</version>
         </dependency>
+
+<!--        DevTools-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-devtools</artifactId>-->
+<!--            <version>3.0.1</version>-->
+<!--        </dependency>-->
 
         <!--		For DATABASE-->
 <!--        <dependency>-->

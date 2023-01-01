@@ -71,6 +71,7 @@ public class UserController {
     public ModelAndView getAdmins(@RequestParam Long id){
         ModelAndView mv = new ModelAndView();
         Admins admins = userRepository.findById(id).orElse(new Admins());
+        System.out.println(admins.getClass());
         mv.addObject(admins);
         mv.setViewName("adminsData");
         return mv;
@@ -81,6 +82,7 @@ public class UserController {
     public ModelAndView getAdminsByName(@RequestParam String name){
         ModelAndView mv = new ModelAndView();
         List<Admins> adminsByNames = userRepository.findByName(name);
+        System.out.println(adminsByNames.getClass());
         System.out.println(adminsByNames);
         mv.addObject(adminsByNames);
         mv.setViewName("adminsData");
@@ -92,6 +94,7 @@ public class UserController {
     public ModelAndView getAdminsRoll(@RequestParam String roll){
         ModelAndView mv = new ModelAndView();
         List<Admins> adminsByRoll = userRepository.findByRoll(roll);
+        System.out.println(adminsByRoll.getClass());
         System.out.println(adminsByRoll);
         mv.addObject(adminsByRoll);
         mv.setViewName("adminsData");

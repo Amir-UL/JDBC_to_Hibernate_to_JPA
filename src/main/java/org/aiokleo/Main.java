@@ -30,5 +30,4 @@ public class Main {
         c.em.persist(laptop);
         c.em.getTransaction().commit();
 
-    }
 }

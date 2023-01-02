@@ -32,7 +32,5 @@ public class Main {
         // If I want all The Object to Prototype
         // I have to Annotate @Scan(value="prototype")
 
-
     }
-
 }

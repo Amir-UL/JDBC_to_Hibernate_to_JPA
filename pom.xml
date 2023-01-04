@@ -60,6 +60,11 @@
             <version>9.0.69</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
 <!--        DevTools-->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->
@@ -88,4 +93,33 @@
 
     </dependencies>
 
+<!--    <build>-->
+<!--    <plugins>-->
+<!--    <plugin>-->
+<!--        <groupId>org.openapitools</groupId>-->
+<!--        <artifactId>openapi-generator-maven-plugin</artifactId>-->
+<!--        <version>4.2.3</version>-->
+<!--        <executions>-->
+<!--            <execution>-->
+<!--                <goals>-->
+<!--                    <goal>generate</goal>-->
+<!--                </goals>-->
+<!--                <configuration>-->
+<!--                    <inputSpec>${project.basedir}/src/main/resources/openapi.yaml</inputSpec>-->
+<!--                    <generatorName>spring</generatorName>-->
+<!--                    <apiPackage>org.ogc.api</apiPackage>-->
+<!--                    <modelPackage>org.ogc.model</modelPackage>-->
+<!--                    <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>-->
+<!--                    <configOptions>-->
+<!--                        <delegatePattern>true</delegatePattern>-->
+<!--                    </configOptions>-->
+<!--                    <typeMappings>-->
+<!--                        <typeMapping>number=java.lang.Double</typeMapping>-->
+<!--                    </typeMappings>-->
+<!--                </configuration>-->
+<!--            </execution>-->
+<!--        </executions>-->
+<!--    </plugin>-->
+<!--    </plugins>-->
+<!--    </build>-->
 </project>

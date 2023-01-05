@@ -14,26 +14,22 @@ public class ExpensesTest {
             Expenses e1 = new Expenses(
                     "Food",
                     "Food for the month",
-                    10000,
-                    "2000-01-01"
+                    10000
             );
             Expenses e2 = new Expenses(
                     "Rent",
                     "Rent for the month",
-                    100000,
-                    "2000-01-01"
+                    100000
             );
             Expenses e3 = new Expenses(
                     "Electricity",
                     "Electricity for the month",
-                    100000,
-                    "2000-01-01"
+                    100000
             );
             Expenses e4 = new Expenses(
                     "Water",
                     "Water for the month",
-                    1000,
-                    "2000-01-01"
+                    1000
             );
             expensesRepository.saveAll(
                     List.of(e1, e2, e3, e4)

@@ -4,8 +4,6 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -13,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 @Entity
+@Component
 public class Expenses {
     @SequenceGenerator(
             name = "expenses_sequence",
@@ -25,20 +24,16 @@ public class Expenses {
     )
    @Id
     private Long id;
-    private String expense_name;
+    private String expense_des;
     private String expense_type;
     private int amount;
-    private LocalDate created_at;
+    private String created_at;
 
-
-
-    public Expenses(String expense_name,
+    public Expenses(String expense_des,
                     String expense_type,
-                    int amount,
-                    String created_at) {
-        this.expense_name = expense_name;
+                    int amount) {
+        this.expense_des = expense_des;
         this.expense_type = expense_type;
         this.amount = amount;
-        this.created_at = LocalDate.parse(created_at);
     }
 }

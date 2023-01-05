@@ -3,6 +3,7 @@ package org.aiokleo.expenses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -122,6 +123,24 @@ public class TheController {
         List<Expenses> expenses = expensesServices.findAll();
         mv.addObject("expenses", expenses);
         return mv;
+    }
+
+    @RequestMapping(value = "controller")
+    public String controller(){
+        return "controller";
+    }
+
+    @RequestMapping("save_expenses")
+    public ModelAndView add_expenses(){
+        ModelAndView mv = new ModelAndView("add_expenses");
+        mv.addObject("save_expenses", new Expenses());
+        return mv;
+    }
+
+    @RequestMapping(value = "save_expenses", method = RequestMethod.POST)
+    public String save_expenses(Expenses expenses){
+        expensesServices.save(expenses);
+        return "redirect:/expenses";
     }
 
 }

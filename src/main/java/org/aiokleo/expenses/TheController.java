@@ -1,12 +1,14 @@
 package org.aiokleo.expenses;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller // Giving the Access/Sending Request of/to home.jsp FILE
 public class TheController {
@@ -130,7 +132,8 @@ public class TheController {
         return "controller";
     }
 
-    @RequestMapping("save_expenses")
+
+    @RequestMapping(value = "save_expenses", method = RequestMethod.GET)
     public ModelAndView add_expenses(){
         ModelAndView mv = new ModelAndView("add_expenses");
         mv.addObject("save_expenses", new Expenses());
@@ -141,6 +144,15 @@ public class TheController {
     public String save_expenses(Expenses expenses){
         expensesServices.save(expenses);
         return "redirect:/expenses";
+    }
+
+
+    @RequestMapping(value = "edit_expenses/{id}")
+    public ModelAndView edit_expenses(@PathVariable String id) {
+        Optional<Expenses> expenses = expensesServices.findById(Long.valueOf(id));
+        ModelAndView mv = new ModelAndView("edit_expenses");
+        mv.addObject("expenses", expenses);
+        return mv;
     }
 
 }

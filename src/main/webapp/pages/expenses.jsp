@@ -8,13 +8,15 @@
 </head>
 <%@ page import="java.util.Date" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="location" value="pageContext.request.contextPath"/>
 <body>
 
 <c:forEach var="expense" items="${expenses}">
             <h4>&#2547;${expense.amount}</h4>
             <h2>${expense.expense_type}</h2>
             <h2>${expense.expense_des}</h2>
-            <h2>${expense.created_at}</h2>
+            <h2>${expense.id}</h2>
+            <a href="edit_expenses/${expense.id}">Edit</a>
         <br>
 </c:forEach>
 

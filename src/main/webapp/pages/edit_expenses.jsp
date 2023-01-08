@@ -6,13 +6,13 @@
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
     <title>First JSP</title>
 </head>
+
 <%@ page import="java.util.Date" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <body>
 
-<form action="/save_expenses" method="post">
+<form action="update_expenses/${expenses.id}" method="post">
 
     <label for="type">Expense Type</label>
     <input type="text" name="expense_type" id="type">
@@ -25,6 +25,7 @@
 
     <button type="submit">Add to Expense List</button>
 </form>
+
 <strong>Current Time is</strong>: <%=new Date() %>
 
 </body>

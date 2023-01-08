@@ -4,29 +4,29 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-    <title>First JSP</title>
+    <title>P</title>
 </head>
-
-<%@ page import="java.util.Date" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<body>
+<body bgcolor="#ffe4c4">
+<form action="/update_expenses">
 
-<form action="update_expenses/${expenses.id}" method="post">
+    <label for="id" >Your Id</label>
+    <input type="text" name="id" id="id" value="${expense.id}">
 
     <label for="type">Expense Type</label>
-    <input type="text" name="expense_type" id="type">
+    <input type="text" name="expense_type", id="type" value="${expense.expense_type}">
 
     <label for="name">Expense Description</label>
-    <input type="text" name="expense_des" id="name">
+    <input type="text" name="expense_des" id="name" value="${expense.expense_des}">
 
     <label for="amount">Amount</label>
-    <input type="text" name="amount" id="amount">
+    <input type="text" name="amount" id="amount" value="${expense.amount}">
 
     <button type="submit">Add to Expense List</button>
 </form>
 
-<strong>Current Time is</strong>: <%=new Date() %>
 
 </body>
+
 </html>

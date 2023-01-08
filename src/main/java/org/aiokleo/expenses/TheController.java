@@ -146,13 +146,14 @@ public class TheController {
         return "redirect:/expenses";
     }
 
-
-    @RequestMapping(value = "edit_expenses/{id}")
-    public ModelAndView edit_expenses(@PathVariable String id) {
-        Optional<Expenses> expenses = expensesServices.findById(Long.valueOf(id));
-        ModelAndView mv = new ModelAndView("edit_expenses");
-        mv.addObject("expenses", expenses);
+    @RequestMapping( value = "add_expenses/{id}", method = RequestMethod.GET)
+    public ModelAndView edit(@PathVariable("id") Long id){
+        Expenses expense = expensesServices.findById(id);
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("expense", expense);
+        mv.setViewName("edit_expenses");
         return mv;
     }
+
 
 }

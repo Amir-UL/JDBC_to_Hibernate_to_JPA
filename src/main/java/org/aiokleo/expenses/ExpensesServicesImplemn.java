@@ -22,10 +22,10 @@ public class ExpensesServicesImplemn implements ExpensesServices {
         expensesRepository.save(expenses);
     }
     @Override
-    public Optional<Expenses> findById(Long id) {
+    public Expenses findById(Long id) {
         if (expensesRepository.findById(id).isPresent()){
-            return Optional.of(expensesRepository.findById(id).get());
+            return expensesRepository.findById(id).get();
         }
-        return Optional.empty();
+        return null;
     }
 }

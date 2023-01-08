@@ -16,11 +16,9 @@
             <h2>${expense.expense_type}</h2>
             <h2>${expense.expense_des}</h2>
             <h2>${expense.id}</h2>
-            <a href="edit_expenses/${expense.id}">Edit</a>
+            <button><a href="add_expenses/${expense.id}">Edit</a></button>
         <br>
 </c:forEach>
-
-<strong>Current Time is</strong>: <%=new Date() %>
 
 </body>
 </html>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller // Giving the Access/Sending Request of/to home.jsp FILE
@@ -117,6 +118,8 @@ public class TheController {
 //    }
     @Autowired
     ExpensesServices expensesServices;
+    @Autowired
+    private ExpensesRepository expensesRepository;
 
     @RequestMapping(value = "expenses")
     public ModelAndView expenses(){
@@ -155,5 +158,24 @@ public class TheController {
         return mv;
     }
 
+//    @RequestMapping(path = "update_expenses/{id}")
+//    public String updateStudent(
+//            @PathVariable("id") Long id,
+//            @RequestParam(required = false) String expense_type,
+//            @RequestParam(required = false) String expense_des,
+//            @RequestParam(required = false) int amount){
+//
+//        Expenses expense = expensesServices.findById(id);
+//
+//        if ((expense_type != null) && (expense_type.length() > 0) && !Objects.equals(expense.getExpense_type(), expense_type)){
+//            expense.setExpense_type(expense_type);
+//        }
+//
+//        if ((expense_des != null) && (expense_des.length() > 0) && !Objects.equals(expense.getExpense_des(), expense_des)){
+//            expense.setExpense_des(expense_des);
+//        }
+//        expensesRepository.save(expense);
+//        return "redirect:/expenses";
+//    }
 
 }

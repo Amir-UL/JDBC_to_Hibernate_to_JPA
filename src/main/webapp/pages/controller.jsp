@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII"
-         pageEncoding="US-ASCII"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,7 +10,7 @@
 <h1>Control Pannel</h1>
 <button><a href="/save_expenses">Add Expenses</a></button>
 <button><a href="/expenses">View Expenses</a></button>
-<button><a href="/Edit">Edit Expense</a></button>
+<button><a href="/editable_expenses">Edit Expense</a></button>
 <strong>Current Time is</strong>: <%=new Date() %>
 
 </body>

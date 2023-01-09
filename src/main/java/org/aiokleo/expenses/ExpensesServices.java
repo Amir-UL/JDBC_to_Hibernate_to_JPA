@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface ExpensesServices {
     List<Expenses> findAll();
     void save(Expenses expenses);
-    Optional<Expenses> findById(Long id);
+    Expenses findById(Long id);
 
 }

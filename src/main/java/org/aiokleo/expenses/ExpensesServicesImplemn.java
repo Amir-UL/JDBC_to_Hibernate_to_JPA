@@ -3,7 +3,9 @@ package org.aiokleo.expenses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -22,10 +24,10 @@ public class ExpensesServicesImplemn implements ExpensesServices {
         expensesRepository.save(expenses);
     }
     @Override
-    public Optional<Expenses> findById(Long id) {
+    public Expenses findById(Long id) {
         if (expensesRepository.findById(id).isPresent()){
-            return Optional.of(expensesRepository.findById(id).get());
+            return expensesRepository.findById(id).get();
         }
-        return Optional.empty();
+        return null;
     }
 }

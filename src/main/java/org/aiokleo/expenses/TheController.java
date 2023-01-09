@@ -1,12 +1,15 @@
 package org.aiokleo.expenses;
 
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Controller // Giving the Access/Sending Request of/to home.jsp FILE
 public class TheController {
@@ -115,6 +118,8 @@ public class TheController {
 //    }
     @Autowired
     ExpensesServices expensesServices;
+    @Autowired
+    private ExpensesRepository expensesRepository;
 
     @RequestMapping(value = "expenses")
     public ModelAndView expenses(){
@@ -130,7 +135,8 @@ public class TheController {
         return "controller";
     }
 
-    @RequestMapping("save_expenses")
+
+    @RequestMapping(value = "save_expenses", method = RequestMethod.GET)
     public ModelAndView add_expenses(){
         ModelAndView mv = new ModelAndView("add_expenses");
         mv.addObject("save_expenses", new Expenses());
@@ -142,5 +148,34 @@ public class TheController {
         expensesServices.save(expenses);
         return "redirect:/expenses";
     }
+
+    @RequestMapping( value = "add_expenses/{id}", method = RequestMethod.GET)
+    public ModelAndView edit(@PathVariable("id") Long id){
+        Expenses expense = expensesServices.findById(id);
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("expense", expense);
+        mv.setViewName("edit_expenses");
+        return mv;
+    }
+
+//    @RequestMapping(path = "update_expenses/{id}")
+//    public String updateStudent(
+//            @PathVariable("id") Long id,
+//            @RequestParam(required = false) String expense_type,
+//            @RequestParam(required = false) String expense_des,
+//            @RequestParam(required = false) int amount){
+//
+//        Expenses expense = expensesServices.findById(id);
+//
+//        if ((expense_type != null) && (expense_type.length() > 0) && !Objects.equals(expense.getExpense_type(), expense_type)){
+//            expense.setExpense_type(expense_type);
+//        }
+//
+//        if ((expense_des != null) && (expense_des.length() > 0) && !Objects.equals(expense.getExpense_des(), expense_des)){
+//            expense.setExpense_des(expense_des);
+//        }
+//        expensesRepository.save(expense);
+//        return "redirect:/expenses";
+//    }
 
 }

@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.6</version>
+        <version>2.7.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.aiokleo</groupId>
@@ -13,8 +13,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -24,7 +24,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>3.0.1</version>
         </dependency>
 
         <!--				We will Uncomment These Lines WHEN We are ready to Connect DATABASE -->
@@ -64,6 +63,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
@@ -71,25 +71,26 @@
             <scope>compile</scope>
         </dependency>
 
-        <!--        DevTools-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-devtools</artifactId>-->
-<!--            <version>3.0.1</version>-->
-<!--        </dependency>-->
 
         <!--		For DATABASE-->
-<!--        <dependency>-->
-<!--            <groupId>org.postgresql</groupId>-->
-<!--            <artifactId>postgresql</artifactId>-->
-<!--            <scope>runtime</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-test</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        Swagger-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.security</groupId>-->
@@ -99,33 +100,4 @@
 
     </dependencies>
 
-<!--    <build>-->
-<!--    <plugins>-->
-<!--    <plugin>-->
-<!--        <groupId>org.openapitools</groupId>-->
-<!--        <artifactId>openapi-generator-maven-plugin</artifactId>-->
-<!--        <version>4.2.3</version>-->
-<!--        <executions>-->
-<!--            <execution>-->
-<!--                <goals>-->
-<!--                    <goal>generate</goal>-->
-<!--                </goals>-->
-<!--                <configuration>-->
-<!--                    <inputSpec>${project.basedir}/src/main/resources/openapi.yaml</inputSpec>-->
-<!--                    <generatorName>spring</generatorName>-->
-<!--                    <apiPackage>org.ogc.api</apiPackage>-->
-<!--                    <modelPackage>org.ogc.model</modelPackage>-->
-<!--                    <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>-->
-<!--                    <configOptions>-->
-<!--                        <delegatePattern>true</delegatePattern>-->
-<!--                    </configOptions>-->
-<!--                    <typeMappings>-->
-<!--                        <typeMapping>number=java.lang.Double</typeMapping>-->
-<!--                    </typeMappings>-->
-<!--                </configuration>-->
-<!--            </execution>-->
-<!--        </executions>-->
-<!--    </plugin>-->
-<!--    </plugins>-->
-<!--    </build>-->
 </project>
